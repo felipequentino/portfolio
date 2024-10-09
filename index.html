@@ -4,183 +4,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio do Felipe</title>
+  <title>Felipe Quentino - Cientista de Dados</title>
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-blue-200">
-  <header class="text-center py-8 mx-2">
-    <h1 class="text-4xl font-bold">Olá, me chamo Felipe e sou um <br> Full-Stack Developer</h1>
-    <h3 class="text-xl font-semibold mb-2 my-8">Sou estudante de Sistemas de Informações e estou sempre em estado de aprendizado. Busco oportunidades principalmente na área de Back-End.</h3>
-  </header>
+<body class="bg-gray-900 text-white">
+  <!-- Navbar -->
+  <nav class="bg-gray-800 p-4 fixed w-full z-10">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold">Felipe Quentino</a>
+      <ul class="flex space-x-6">
+        <li><a href="#about" class="hover:text-blue-400">Sobre Mim</a></li>
+        <li><a href="#projects" class="hover:text-blue-400">Projetos</a></li>
+        <li><a href="#skills" class="hover:text-blue-400">Habilidades</a></li>
+        <li><a href="#contact" class="hover:text-blue-400">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <main class="container mx-auto">
-    <!-- Seção de Trabalhos -->
-    <section class="my-8">
-      <h2 class="text-2xl text-center font-semibold mb-4 p-4">Meus Trabalhos</h2>
+<!-- Hero Section -->
+<section class="h-screen flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('img/background.jpg');">
+  <div class="text-center">
+    <h1 class="text-5xl font-bold mb-4">Olá, eu sou Felipe Quentino</h1>
+    <p class="text-xl mb-8">Cientista de Dados e Desenvolvedor Full-Stack</p>
+    <img src="img/eu.jpeg" alt="Felipe Quentino" class="rounded-full w-80 mx-auto mb-8">
+    <a href="#projects" class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600">Veja meus Projetos</a>
+  </div>
+</section>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-20 p-2">
-        <!-- Trabalho Portal -->
-        <div class="bg-white p-4 rounded-md shadow-md">
-            <h3 class="text-xl font-semibold mb-2">Portal de Denúncias de Crimes Ambientais</h3>
-            <p class="text-gray-600 mb-4">Desenvolvi este projeto na minha primeira Pesquisa de Iniciação em Desenvolvimento Tecnológico e Inovação, se trata de um PWA com uma interface user-friendly, onde qualquer cidadão pode denunciar um crime ambiental de maneira rápida e prática por meio da visualização do mapa da cidade. Além disso, o site possui mapas interativos segundo a quantidade de crimes ambientais na cidade de Aracaju, e é um PWA: pode ser instalado em qualquer smartphone.</p>
-            <!-- Adicione o link para acessar o trabalho -->
-            <a href="https://crimesambientais.netlify.app" target="_blank" class="text-blue-500 font-semibold hover:underline">Acessar site</a>
-            <!-- Fotos Portal -->
-            <div class="bg-white p-4 rounded-md shadow-md py-8">
-            <h3 class="text-xl font-semibold mb-4">Fotos deste Projeto</h3>
-            <div class="relative">
-                <img id="crimesImage" src="img/crimes/1.png" alt="Imagem 1" class="mb-4 rounded-md">
-                <div class="flex justify-between absolute w-full ">
-                <button onclick="changeImageIndex('crimes', 'previous')" class="text-sm text-blue-500 font-semibold">Anterior</button>
-                <button onclick="changeImageIndex('crimes', 'next')" class="text-sm text-blue-500 font-semibold">Próxima</button>
-                </div>
-            </div>
-            </div>
-            <br>
-            <h3 class="text-xl font-semibold mb-2">Linguagens/Ferramentas:</h3>
-            <p class="text-gray-600 mb-4">JavaScript, HTML, Firebase, Materialize, Leaflet, OpenStreetMap.</p>
+<!-- About Section -->
+<section id="about" class="bg-gray-900">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-semibold mb-12">Sobre Mim</h2>
+    <div class="flex flex-col items-center">
+      <div class="md:w-3/4">
+        <p class="text-lg leading-relaxed mb-8">
+          Sou estudante de Sistemas de Informação com foco em Ciência de Dados, Machine Learning e Deep Learning.
+          Estou sempre em busca de novos conhecimentos e oportunidades para aplicar minhas habilidades em projetos
+          desafiadores. Além disso, sou diretor de Ensino da <a href="https://www.instagram.com/lawd.ufs/" target="_blank" class="text-blue-400 hover:underline">Liga Acadêmica de Desenvolvimento Web</a>, onde ministro diversos mini-cursos e workshops sobre tecnologias web.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-center mb-12">Projetos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Projeto Brasilico -->
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-2">Brasilico</h3>
+          <p class="mb-4">Portal de informações em tempo real do Brasil, fornecendo dados atualizados sobre diversos indicadores socioeconômicos.</p>
+          <a href="https://brasilico.vercel.app/" class="text-blue-400 hover:underline">Acessar Brasilico</a>
+          <div class="relative">
+            <img id="brasilicoImage" src="img/brasilico/1.jpeg" alt="Brasilico" class="rounded-md mb-4">
+          </div>
         </div>
-        
-        <!-- Kleiton Escritor -->
-        <div class="bg-white p-4 rounded-md shadow-md py-8">
-            <h3 class="text-xl font-semibold mb-2">Blog para escutar Audiobooks</h3>
-            <p class="text-gray-600 mb-4">Este site é um freelancer de um Escritor/Narrador/Juiz Federal, Kleiton Ferreira, onde o usuário encontra tudo sobre ele, seus livros, audiobooks, e-books, além de poder escutar os podcasts dele do YouTube ou do Spotify no próprio site. E o site também é um PWA.</p>
-            <br>
-            <br>
-            <br>
-            <a href="https://kleiton.vercel.app/" target="_blank" class="text-blue-500 font-semibold hover:underline">Acessar site</a>
-            <!-- Fotos Kleiton -->
-            <div class="bg-white p-4 rounded-md shadow-md py-8">
-                <h3 class="text-xl font-semibold mb-4">Fotos deste Projeto</h3>
-                <div class="relative">
-                    <img id="kleitonImage" src="img/kleiton/1.png" alt="Imagem 1" class="mb-4 rounded-md">
-                    <div class="flex justify-between absolute w-full">
-                    
-                    <button onclick="changeImageIndex('kleiton', 'previous')" class="text-sm text-blue-500 font-semibold">Anterior</button>
-                    <button onclick="changeImageIndex('kleiton', 'next')" class="text-sm text-blue-500 font-semibold">Próxima</button>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <h3 class="text-xl font-semibold mb-2">Linguagens/Ferramentas:</h3>
-            <p class="text-gray-600 mb-4">JavaScript, HTML, Tailwind CSS.</p>
+
+        <!-- Projeto Detecção de Armas -->
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-2">Modelo de Detecção de Armas e Rastreio de pessoas a partir de 1 detecção facial</h3>
+          <p class="mb-4">Desenvolvi um modelo de visão computacional para detectar armas em imagens e vídeos usando Deep Learning. Além disso, acoplei um modelo de reconhecimento de pessoas e de reconhecimento facial, para fazer um rastreio de pessoas no momento que o reconhecimento facial é realizado. </p>
+          <!-- Carrossel de Imagens -->
+          <div class="relative">
+            <img id="armasImage" src="img/armas/1.png" alt="Detecção de Armas" class="rounded-md mb-4">
+            <img id="armasImage" src="img/armas/2.png" alt="Detecção de Armas" class="rounded-md mb-4">
+          </div>
         </div>
-  
-        <!-- Anny Turismo -->
-        <div class="bg-white p-4 rounded-md shadow-md py-8">
-            <h3 class="text-xl font-semibold mb-2">Lainding Page para uma Agência de Viagens</h3>
-            <p class="text-gray-600 mb-4">Este site é outro freelancer feito para uma agência de viagens, com o intuito de apresentar as vantagens, promoções e contatos desta agência, para que o usuário tenha interesse e entre em contato com eles por meio do site.</p>
-            <br>
-            <br>
-            <br>
-            <a href="https://annyviagens.vercel.app" target="_blank" class="text-blue-500 font-semibold hover:underline">Acessar site</a>
-                   <!-- Fotos Anny -->
-            <div class="bg-white p-4 rounded-md shadow-md py-8">
-                <h3 class="text-xl font-semibold mb-4 ">Fotos deste Projeto</h3>
-                <div class="relative">
-                    <img id="annyImage" src="img/anny/1.png" alt="Imagem 1" class="mb-4 rounded-md">
-                    <div class="flex justify-between absolute w-full">
-                        <button onclick="changeImageIndex('anny', 'previous')" class="text-sm text-blue-500 font-semibold">Anterior</button>
-                        <button onclick="changeImageIndex('anny', 'next')" class="text-sm text-blue-500 font-semibold">Próxima</button>
-                    </div>
-                </div>
+
+        <!-- Projeto Crimes Ambientais -->
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-2">Portal de Denúncias de Crimes Ambientais</h3>
+          <p class="mb-4">Desenvolvi um PWA com interface amigável para que cidadãos possam denunciar crimes ambientais de forma rápida e prática.</p>
+          <a href="https://crimesambientais.netlify.app" target="_blank" class="text-blue-400 hover:underline">Acessar Site</a>
+          <div class="relative">
+            <img id="crimesImage" src="img/crimes/1.png" alt="Crimes" class="rounded-md mb-4">
+            <div class="flex justify-between absolute w-full top-0 mt-2 px-2">
+              <button onclick="changeImageIndex('crimes', 'previous')" class="text-sm bg-gray-600 px-2 py-1 rounded-md">Anterior</button>
+              <button onclick="changeImageIndex('crimes', 'next')" class="text-sm bg-gray-600 px-2 py-1 rounded-md">Próxima</button>
             </div>
-            <br>
-            <h3 class="text-xl font-semibold mb-2">Linguagens/Ferramentas:</h3>
-            <p class="text-gray-600 mb-4">JavaScript, HTML, Tailwind CSS.</p>
+          </div>
         </div>
-        <!-- Bot telegram -->
-        <div class="bg-white p-4 rounded-md shadow-md py-8">
-            <h3 class="text-xl font-semibold mb-2">Bot de trocas de cartas para o Telegram</h3>
-            <p class="text-gray-600 mb-4">Este projeto se trata de um bot de trocas de cartas no telegram, onde o usuário pode colecionar cartas, exibi-las e trocá-las. Além disso, o usuário consegue inserir as cartas no banco de dados pelo telegram, e a partir disso, todos conseguem ter esta carta. Atualmente o bot está offline, pois o grupo que o usava não existe mais.</p>
-            <br>
-                   <!-- Fotos bot -->
-            <div class="bg-white p-4 rounded-md shadow-md py-8">
-                <h3 class="text-xl font-semibold mb-4 ">Fotos deste Projeto</h3>
-                <div class="relative">
-                    <img id="botImage" src="img/bot/1.png" alt="Imagem 1" class="mb-4 rounded-md">                    
-                    <div class="flex justify-between absolute w-full">
-                        <button onclick="changeImageIndex('bot', 'previous')" class="text-sm text-blue-500 font-semibold">Anterior</button>
-                        <button onclick="changeImageIndex('bot', 'next')" class="text-sm text-blue-500 font-semibold">Próxima</button>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <h3 class="text-xl font-semibold mb-2">Linguagens/Ferramentas:</h3>
-            <p class="text-gray-600 mb-4">Python, Telebot, MongoDB</p>
+
+        <!-- Projeto Análise de Dengue -->
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-2">Análise dos Casos de Dengue em Sergipe</h3>
+          <p class="mb-4">Realizei uma análise aprofundada dos casos de dengue em Sergipe, identificando padrões e tendências ao longo dos anos.</p>
+          <a href="https://felipequentino.quarto.pub/dengue-em-sergipe/" target="_blank" class="text-blue-400 hover:underline">Ler Análise Completa</a>
+        </div>
+
+        <!-- Link para Mais Projetos -->
+        <div class="bg-gray-700 p-6 rounded-lg text-center">
+          <h3 class="text-2xl font-semibold mb-4">Mais Projetos</h3>
+          <p class="mb-4">Confira mais projetos de análise de dados e visualizações interativas.</p>
+          <a href="https://felipequentino.quarto.pub/" target="_blank" class="text-blue-400 hover:underline">Ver Todos os Projetos</a>
         </div>
       </div>
+    </div>
+  </section>
 
-    </section>
-    <!-- Seção de contatos -->
-    <section class="my-12 text-center">
-
-
-        <div class="grid grid-cols-1 p-4">
-          <!-- Contato -->
-          <div>
-            <h3 class="text-lg font-semibold mb-2">Contato</h3>
-            <ul class="">
-              <li>Email: felipequentino22@gmail.com</li>
-              <li>Email acadêmico: joão.quentino@dcomp.ufs.br</li>
-              <li>Linkedin: https://www.linkedin.com/in/felipequentino/</li>
-              <li>Número: +55 82 98116-6166</li>
-            </ul>
-          </div>
-      </section>
-    <!-- Seção de Skills -->
-    <section class="my-12 text-center">
-
-
-      <div class="grid grid-cols-2 md:grid-cols-4 p-4">
-        <!-- Linguagens e Frameworks -->
-        <div>
-          <h3 class="text-lg font-semibold mb-2">Linguagens e Frameworks</h3>
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-center mb-12">Habilidades</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Programação -->
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">Programação</h3>
           <ul class="list-disc list-inside">
             <li>Python</li>
             <li>JavaScript</li>
+          </ul>
+        </div>
+        <!-- Data Science -->
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">Data Science</h3>
+          <ul class="list-disc list-inside">
+            <li>Pandas</li>
+            <li>NumPy</li>
+            <li>Matplotlib</li>
+            <li>Seaborn</li>
+          </ul>
+        </div>
+        <!-- Machine Learning -->
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">Machine Learning</h3>
+          <ul class="list-disc list-inside">
+            <li>Scikit-Learn</li>
+            <li>Sktime</li>
+            <li>TensorFlow</li>
+            <li>PyTorch</li>
+          </ul>
+        </div>
+        <!-- Big Data -->
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">Big Data</h3>
+          <ul class="list-disc list-inside">
             <li>Apache Kafka</li>
+            <li>Spark</li>
           </ul>
         </div>
-
-        <!-- Front End -->
-        <div>
-          <h3 class="text-lg font-semibold mb-2">Front End</h3>
-          <ul class="list-disc list-inside">
-              <li>Google Maps</li>
-              <li>Leaflet Maps</li>
-            <li>Tailwind CSS</li>
-            <li>Materialize</li>
-          </ul>
-        </div>
-
-        <!-- Sociais -->
-        <div>
-            <br>
-          <h3 class="text-lg font-semibold mb-2">Sociais</h3>
-          <ul class="list-disc list-inside">
-            <li>Trabalho em Equipe</li>
-            <li>Inglês avançado</li>
-            <li>Proatividade</li>
-          </ul>
-        </div>
-
         <!-- Databases -->
-        <div>
-            <br>
-          <h3 class="text-lg font-semibold mb-2">Databases</h3>
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">Databases</h3>
           <ul class="list-disc list-inside">
+            <li>Postgres</li>
             <li>MySQL</li>
-            <li>MongoDB</li>
             <li>Firebase</li>
+            <li>MongoDB</li>
           </ul>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold text-center mb-12">Contato</h2>
+      <div class="flex flex-col md:flex-row md:justify-center md:space-x-12">
+        <div class="mb-8 md:mb-0">
+          <h3 class="text-2xl font-semibold mb-4">Email</h3>
+          <p>felipequentino22@gmail.com</p>
+          <p>joao.quentino@dcomp.ufs.br</p>
+        </div>
+        <div class="mb-8 md:mb-0">
+          <h3 class="text-2xl font-semibold mb-4">LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/felipequentino/" target="_blank" class="text-blue-400 hover:underline">/in/felipequentino</a>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-4">Telefone</h3>
+          <p>+55 82 98116-6166</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-4 text-center">
+    <p>&copy; 2023 Felipe Quentino. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Script para os Carrosseis -->
   <script src="main.js"></script>
 </body>
 
 </html>
+
+<style>
+#about {
+    margin-top: -90px; /* ajuste conforme necessário */
+}
+
+</style>
