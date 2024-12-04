@@ -1,202 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Felipe Quentino - Cientista de Dados</title>
-  <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfólio - Windows XP</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
-<body class="bg-gray-900 text-white">
-  <!-- Navbar -->
-  <nav class="bg-gray-800 p-4 fixed w-full z-10">
-    <div class="container mx-auto flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold">Felipe Quentino</a>
-      <ul class="flex space-x-6">
-        <li><a href="#about" class="hover:text-blue-400">Sobre Mim</a></li>
-        <li><a href="#projects" class="hover:text-blue-400">Projetos</a></li>
-        <li><a href="#skills" class="hover:text-blue-400">Habilidades</a></li>
-        <li><a href="#contact" class="hover:text-blue-400">Contato</a></li>
-      </ul>
+<body>
+  <div class="desktop">
+    <!-- Atalhos da Área de Trabalho -->
+    <div class="shortcut" id="recycle-bin-shortcut" onclick="openWindow('recycle-bin-window')">
+      <img src="./images/recycle-bin-icon.png" alt="Lixeira">
+      <span>Lixeira</span>
     </div>
-  </nav>
 
-<!-- Hero Section -->
-<section class="h-screen flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('img/background.jpg');">
-  <div class="text-center">
-    <h1 class="text-5xl font-bold mb-4">Olá, eu sou Felipe Quentino</h1>
-    <p class="text-xl mb-8">Cientista de Dados e Desenvolvedor Full-Stack</p>
-    <img src="img/eu.jpeg" alt="Felipe Quentino" class="rounded-full w-80 mx-auto mb-8">
-    <a href="#projects" class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600">Veja meus Projetos</a>
+    <div class="shortcut" id="info-shortcut" onclick="openWindow('about-window')" style="top: 120px; left: 20px;">
+      <img src="./images/info-icon.png" alt="Info Icon">
+      <span>Info</span>
+    </div>
+
+    <div class="shortcut" id="projects-shortcut" onclick="openWindow('projects-window')" style="top: 200px; left: 20px;">
+      <img src="./images/folder-icon.png" alt="Meus Projetos">
+      <span>Meus Projetos</span>
+    </div>
+
+    <!-- Barra de Tarefas -->
+    <div class="taskbar">
+      <button class="start-button" onclick="toggleStartMenu()">
+        <img src="./images/start.png" alt="Botão Iniciar">
+      </button>
+    </div>
+
+    <!-- Menu Start -->
+    <div class="start-menu" id="start-menu">
+      <!-- Topo com ícone e texto -->
+      <div class="menu-header">
+        <img src="./images/user-icon.png" alt="User Icon" class="user-icon">
+        <span class="user-name">Felipe</span>
+      </div>
+      
+      <!-- Colunas principais -->
+      <div class="menu-content">
+        <!-- Coluna esquerda: Aplicações -->
+        <div class="menu-left">
+          <ul class="menu-list">
+            <li onclick="openWindow('about-window')">
+              <img src="./images/info-icon.png" alt="Info Icon">
+              Sobre Mim
+            </li>
+            <li onclick="openWindow('recycle-bin-window')">
+              <img src="./images/recycle-bin-icon.png" alt="Recycle Bin Icon">
+              Lixeira
+            </li>
+            <li onclick="openWindow('settings-window')">
+              <img src="./images/my-computer.webp" alt="Settings Icon">
+              Meu Computador
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Coluna direita: Acessos rápidos -->
+        <div class="menu-right">
+          <ul class="menu-list">
+            <li onclick="openWindow('projects-window')">
+              <img src="./images/folder-icon.png" alt="Folder Icon">
+              Meus Projetos
+            </li>
+            <li onclick="openWindow('internet-window')">
+              <img src="./images/internet-icon.webp" alt="Internet Icon">
+              Internet Explorer
+            </li>
+            <li onclick="openWindow('music-window')">
+              <img src="./images/music-icon.png" alt="Music Icon">
+              Minhas Músicas
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Rodapé com botões de desligar e deslogar -->
+      <div class="menu-footer">
+        <button class="footer-button">Logoff</button>
+        <button class="footer-button">Desligar</button>
+      </div>
+    </div>
+
+    <!-- Janelas -->
+    <!-- Janela Sobre Mim -->
+    <div class="window" id="about-window">
+      <div class="window-header">
+        <span class="window-title">Sobre Mim</span>
+        <div class="window-controls">
+          <button class="minimize-button" onclick="minimizeWindow('about-window')"></button>
+          <button class="maximize-button" onclick="maximizeWindow('about-window')"></button>
+          <button class="close-button" onclick="closeWindow('about-window')"></button>
+        </div>
+      </div>
+      <div class="window-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat velit ullam itaque assumenda dicta, mollitia voluptatum optio similique!</p>
+        <p>Eu sou um dev dev dev.</p>
+      </div>
+    </div>
+
+    <!-- Janela Lixeira -->
+    <div class="window" id="recycle-bin-window">
+      <div class="window-header">
+        <span class="window-title">Lixeira</span>
+        <div class="window-controls">
+          <button class="minimize-button" onclick="minimizeWindow('recycle-bin-window')"></button>
+          <button class="maximize-button" onclick="maximizeWindow('recycle-bin-window')"></button>
+          <button class="close-button" onclick="closeWindow('recycle-bin-window')"></button>
+        </div>
+      </div>
+      <div class="window-content">
+        <p>A Lixeira está vazia!</p>
+      </div>
+    </div>
+
+    <!-- Janela Meus Projetos -->
+    <div class="window" id="projects-window">
+      <div class="window-header">
+        <span class="window-title">Meus Projetos</span>
+        <div class="window-controls">
+          <button class="minimize-button" onclick="minimizeWindow('projects-window')"></button>
+          <button class="maximize-button" onclick="maximizeWindow('projects-window')"></button>
+          <button class="close-button" onclick="closeWindow('projects-window')"></button>
+        </div>
+      </div>
+      <div class="window-content file-manager">
+        <!-- Simulação de Gerenciador de Arquivos do Windows XP -->
+        <div class="file-manager-sidebar">
+          <ul>
+            <li onclick="filterProjects('all')">Todos os Projetos</li>
+            <li onclick="filterProjects('web')">Web</li>
+            <li onclick="filterProjects('mobile')">Mobile</li>
+            <li onclick="filterProjects('design')">Design</li>
+          </ul>
+        </div>
+        <div class="file-manager-content">
+          <div class="project-item" data-category="web">
+            <img src="./images/project-web-icon.png" alt="Projeto Web">
+            <span>Brasilico</span>
+          </div>
+          <div class="project-item" data-category="mobile">
+            <img src="./images/project-mobile-icon.png" alt="Projeto Mobile">
+            <span>Projeto App Mobile</span>
+          </div>
+          <div class="project-item" data-category="design">
+            <img src="./images/project-design-icon.png" alt="Projeto Design">
+            <span>Projeto Design Gráfico</span>
+          </div>
+          <!-- Adicione mais projetos conforme necessário -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Janela Detalhes do Projeto -->
+    <div class="window" id="project-details-window">
+      <div class="window-header">
+        <span class="window-title">Detalhes do Projeto</span>
+        <div class="window-controls">
+          <button class="minimize-button" onclick="minimizeWindow('project-details-window')"></button>
+          <button class="maximize-button" onclick="maximizeWindow('project-details-window')"></button>
+          <button class="close-button" onclick="closeWindow('project-details-window')"></button>
+        </div>
+      </div>
+      <div class="window-content">
+        <h2 id="project-name">Nome do Projeto</h2>
+        <p id="project-description">Descrição detalhada do projeto...</p>
+        
+        <!-- Seção de Stack Tecnológica -->
+        <div id="project-stack">
+          <h3>Stack Tecnológica</h3>
+          <ul id="stack-list">
+            <!-- Tecnologias serão adicionadas aqui via JavaScript -->
+          </ul>
+        </div>
+        
+        <a href="#" id="project-link" target="_blank">Ver Projeto</a>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- About Section -->
-<section id="about" class="bg-gray-900">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-4xl font-semibold mb-12">Sobre Mim</h2>
-    <div class="flex flex-col items-center">
-      <div class="md:w-3/4">
-        <p class="text-lg leading-relaxed mb-8">
-          Sou estudante de Sistemas de Informação com foco em Ciência de Dados, Machine Learning e Deep Learning.
-          Estou sempre em busca de novos conhecimentos e oportunidades para aplicar minhas habilidades em projetos
-          desafiadores. Além disso, sou diretor de Ensino da <a href="https://www.instagram.com/lawd.ufs/" target="_blank" class="text-blue-400 hover:underline">Liga Acadêmica de Desenvolvimento Web</a>, onde ministro diversos mini-cursos e workshops sobre tecnologias web.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-gray-800">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-center mb-12">Projetos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Projeto Brasilico -->
-        <div class="bg-gray-700 p-6 rounded-lg">
-          <h3 class="text-2xl font-semibold mb-2">Brasilico</h3>
-          <p class="mb-4">Portal de informações em tempo real do Brasil, fornecendo dados atualizados sobre diversos indicadores socioeconômicos.</p>
-          <a href="https://brasilico.vercel.app/" class="text-blue-400 hover:underline">Acessar Brasilico</a>
-          <div class="relative">
-            <img id="brasilicoImage" src="img/brasilico/1.jpeg" alt="Brasilico" class="rounded-md mb-4">
-          </div>
-        </div>
-
-        <!-- Projeto Detecção de Armas -->
-        <div class="bg-gray-700 p-6 rounded-lg">
-          <h3 class="text-2xl font-semibold mb-2">Modelo de Detecção de Armas e Rastreio de pessoas a partir de 1 detecção facial</h3>
-          <p class="mb-4">Desenvolvi um modelo de visão computacional para detectar armas em imagens e vídeos usando Deep Learning. Além disso, acoplei um modelo de reconhecimento de pessoas e de reconhecimento facial, para fazer um rastreio de pessoas no momento que o reconhecimento facial é realizado. </p>
-          <!-- Carrossel de Imagens -->
-          <div class="relative">
-            <img id="armasImage" src="img/armas/1.png" alt="Detecção de Armas" class="rounded-md mb-4">
-            <img id="armasImage" src="img/armas/2.png" alt="Detecção de Armas" class="rounded-md mb-4">
-          </div>
-        </div>
-
-        <!-- Projeto Crimes Ambientais -->
-        <div class="bg-gray-700 p-6 rounded-lg">
-          <h3 class="text-2xl font-semibold mb-2">Portal de Denúncias de Crimes Ambientais</h3>
-          <p class="mb-4">Desenvolvi um PWA com interface amigável para que cidadãos possam denunciar crimes ambientais de forma rápida e prática.</p>
-          <a href="https://crimesambientais.netlify.app" target="_blank" class="text-blue-400 hover:underline">Acessar Site</a>
-          <div class="relative">
-            <img id="crimesImage" src="img/crimes/1.png" alt="Crimes" class="rounded-md mb-4">
-            <div class="flex justify-between absolute w-full top-0 mt-2 px-2">
-              <button onclick="changeImageIndex('crimes', 'previous')" class="text-sm bg-gray-600 px-2 py-1 rounded-md">Anterior</button>
-              <button onclick="changeImageIndex('crimes', 'next')" class="text-sm bg-gray-600 px-2 py-1 rounded-md">Próxima</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Projeto Análise de Dengue -->
-        <div class="bg-gray-700 p-6 rounded-lg">
-          <h3 class="text-2xl font-semibold mb-2">Análise dos Casos de Dengue em Sergipe</h3>
-          <p class="mb-4">Realizei uma análise aprofundada dos casos de dengue em Sergipe, identificando padrões e tendências ao longo dos anos.</p>
-          <a href="https://felipequentino.quarto.pub/dengue-em-sergipe/" target="_blank" class="text-blue-400 hover:underline">Ler Análise Completa</a>
-        </div>
-
-        <!-- Link para Mais Projetos -->
-        <div class="bg-gray-700 p-6 rounded-lg text-center">
-          <h3 class="text-2xl font-semibold mb-4">Mais Projetos</h3>
-          <p class="mb-4">Confira mais projetos de análise de dados e visualizações interativas.</p>
-          <a href="https://felipequentino.quarto.pub/" target="_blank" class="text-blue-400 hover:underline">Ver Todos os Projetos</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="py-20 bg-gray-900">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-center mb-12">Habilidades</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Programação -->
-        <div class="bg-gray-800 p-6 rounded-lg">
-          <h3 class="text-2xl font-semibold mb-4">Programação</h3>
-          <ul class="list-disc list-inside">
-            <li>Python</li>
-            <li>JavaScript</li>
-          </ul>
-        </div>
-        <!-- Data Science -->
-        <div class="bg-gray-800 p-6 rounded-lg">
-          <h3 class="text-2xl font-semibold mb-4">Data Science</h3>
-          <ul class="list-disc list-inside">
-            <li>Pandas</li>
-            <li>NumPy</li>
-            <li>Matplotlib</li>
-            <li>Seaborn</li>
-          </ul>
-        </div>
-        <!-- Machine Learning -->
-        <div class="bg-gray-800 p-6 rounded-lg">
-          <h3 class="text-2xl font-semibold mb-4">Machine Learning</h3>
-          <ul class="list-disc list-inside">
-            <li>Scikit-Learn</li>
-            <li>Sktime</li>
-            <li>TensorFlow</li>
-            <li>PyTorch</li>
-          </ul>
-        </div>
-        <!-- Big Data -->
-        <div class="bg-gray-800 p-6 rounded-lg">
-          <h3 class="text-2xl font-semibold mb-4">Big Data</h3>
-          <ul class="list-disc list-inside">
-            <li>Apache Kafka</li>
-            <li>Spark</li>
-          </ul>
-        </div>
-        <!-- Databases -->
-        <div class="bg-gray-800 p-6 rounded-lg">
-          <h3 class="text-2xl font-semibold mb-4">Databases</h3>
-          <ul class="list-disc list-inside">
-            <li>Postgres</li>
-            <li>MySQL</li>
-            <li>Firebase</li>
-            <li>MongoDB</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-800">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-center mb-12">Contato</h2>
-      <div class="flex flex-col md:flex-row md:justify-center md:space-x-12">
-        <div class="mb-8 md:mb-0">
-          <h3 class="text-2xl font-semibold mb-4">Email</h3>
-          <p>felipequentino22@gmail.com</p>
-          <p>joao.quentino@dcomp.ufs.br</p>
-        </div>
-        <div class="mb-8 md:mb-0">
-          <h3 class="text-2xl font-semibold mb-4">LinkedIn</h3>
-          <a href="https://www.linkedin.com/in/felipequentino/" target="_blank" class="text-blue-400 hover:underline">/in/felipequentino</a>
-        </div>
-        <div>
-          <h3 class="text-2xl font-semibold mb-4">Telefone</h3>
-          <p>+55 82 98116-6166</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 py-4 text-center">
-    <p>&copy; 2023 Felipe Quentino. Todos os direitos reservados.</p>
-  </footer>
-
-  <!-- Script para os Carrosseis -->
-  <script src="main.js"></script>
+  <script src="js/scripts.js"></script>
 </body>
-
 </html>
-
-<style>
-#about {
-    margin-top: -90px; /* ajuste conforme necessário */
-}
-
-</style>

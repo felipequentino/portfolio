@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felipe Quentino - Cientista de Dados</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Fonte Tahoma -->
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-b from-blue-500 to-green-300 text-black">
+  <!-- Barra de Tarefas -->
+  <div class="fixed bottom-0 left-0 right-0 h-12 bg-gray-300 border-t-2 border-gray-400 flex items-center">
+    <button id="start-button" class="ml-2 px-3 py-1 bg-gray-200 border border-gray-400 rounded-sm flex items-center hover:bg-gray-300 focus:outline-none">
+      <img src="img/windows-logo.png" alt="Windows Logo" class="w-4 h-4 mr-2">
+      <span class="font-bold text-sm">Iniciar</span>
+    </button>
+    <!-- Relógio -->
+    <div class="ml-auto mr-4 text-sm">
+      <span id="clock"></span>
+    </div>
+  </div>
+
+  <!-- Menu Iniciar -->
+  <div id="start-menu" class="hidden absolute bottom-12 left-2 w-64 bg-gray-200 border border-gray-400 shadow-lg">
+    <div class="bg-blue-500 text-white p-2 font-bold">
+      Felipe Quentino
+    </div>
+    <ul>
+      <li class="hover:bg-gray-300">
+        <a href="#projects" class="flex items-center p-2">
+          <img src="img/my-computer.png" alt="Projetos" class="w-5 h-5 mr-2">
+          Meus Projetos
+        </a>
+      </li>
+      <li class="hover:bg-gray-300">
+        <a href="#about" class="flex items-center p-2">
+          <img src="img/user.png" alt="Sobre Mim" class="w-5 h-5 mr-2">
+          Sobre Mim
+        </a>
+      </li>
+      <li class="hover:bg-gray-300">
+        <a href="#skills" class="flex items-center p-2">
+          <img src="img/skills.png" alt="Habilidades" class="w-5 h-5 mr-2">
+          Habilidades
+        </a>
+      </li>
+      <li class="hover:bg-gray-300">
+        <a href="#contact" class="flex items-center p-2">
+          <img src="img/contact.png" alt="Contato" class="w-5 h-5 mr-2">
+          Contato
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Papel de Parede (substitua 'img/bliss.jpg' pela imagem que você tem permissão para usar) -->
+  <div class="absolute inset-0 z-0">
+    <img src="img/bliss.jpg" alt="Papel de Parede" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Janela Principal -->
+  <div class="window bg-gray-200 border border-gray-500 shadow-lg rounded-md max-w-4xl mx-auto mt-16 relative z-10">
+    <!-- Barra de Título -->
+    <div class="flex items-center bg-blue-500 text-white px-2 py-1 rounded-t-md">
+      <img src="img/my-computer.png" alt="Ícone" class="w-4 h-4 mr-2">
+      <span class="font-bold">Felipe Quentino - Cientista de Dados</span>
+      <div class="ml-auto flex space-x-1">
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">_</button>
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">☐</button>
+        <button class="w-6 h-6 bg-red-500 hover:bg-red-600 focus:outline-none">X</button>
+      </div>
+    </div>
+    <!-- Conteúdo da Janela -->
+    <div class="p-4">
+      <!-- Hero Section -->
+      <section class="text-center">
+        <h1 class="text-4xl font-bold mb-4">Olá, eu sou Felipe Quentino</h1>
+        <p class="text-xl mb-4">Cientista de Dados e Desenvolvedor Full-Stack</p>
+        <img src="img/eu.jpeg" alt="Felipe Quentino" class="rounded-full w-40 h-40 mx-auto mb-4 border-2 border-gray-400">
+        <button class="bg-gray-200 border border-gray-400 px-4 py-2 rounded shadow-inner hover:bg-gray-300 active:shadow-none focus:outline-none" onclick="window.location.href='#projects'">
+          Veja meus Projetos
+        </button>
+      </section>
+    </div>
+  </div>
+
+  <!-- Sobre Mim Janela -->
+  <div id="about" class="window bg-gray-200 border border-gray-500 shadow-lg rounded-md max-w-4xl mx-auto mt-8 relative z-10">
+    <!-- Barra de Título -->
+    <div class="flex items-center bg-blue-500 text-white px-2 py-1 rounded-t-md">
+      <img src="img/user.png" alt="Ícone" class="w-4 h-4 mr-2">
+      <span class="font-bold">Sobre Mim</span>
+      <div class="ml-auto flex space-x-1">
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">_</button>
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">☐</button>
+        <button class="w-6 h-6 bg-red-500 hover:bg-red-600 focus:outline-none">X</button>
+      </div>
+    </div>
+    <!-- Conteúdo da Janela -->
+    <div class="p-4">
+      <p class="text-lg">
+        Sou estudante de Sistemas de Informação com foco em Ciência de Dados, Machine Learning e Deep Learning.
+        Estou sempre em busca de novos conhecimentos e oportunidades para aplicar minhas habilidades em projetos
+        desafiadores. Além disso, sou diretor de Ensino da <a href="https://www.instagram.com/lawd.ufs/" target="_blank" class="text-blue-600 hover:underline">Liga Acadêmica de Desenvolvimento Web</a>, onde ministro diversos mini-cursos e workshops sobre tecnologias web.
+      </p>
+    </div>
+  </div>
+
+  <!-- Projetos Janela -->
+  <div id="projects" class="window bg-gray-200 border border-gray-500 shadow-lg rounded-md max-w-4xl mx-auto mt-8 relative z-10">
+    <!-- Barra de Título -->
+    <div class="flex items-center bg-blue-500 text-white px-2 py-1 rounded-t-md">
+      <img src="img/my-computer.png" alt="Ícone" class="w-4 h-4 mr-2">
+      <span class="font-bold">Projetos</span>
+      <div class="ml-auto flex space-x-1">
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">_</button>
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">☐</button>
+        <button class="w-6 h-6 bg-red-500 hover:bg-red-600 focus:outline-none">X</button>
+      </div>
+    </div>
+    <!-- Conteúdo da Janela -->
+    <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Projeto Brasilico -->
+      <div class="bg-white border border-gray-400 p-2 rounded">
+        <h3 class="font-bold text-xl mb-2">Brasilico</h3>
+        <p class="mb-2">Portal de informações em tempo real do Brasil, fornecendo dados atualizados sobre diversos indicadores socioeconômicos.</p>
+        <a href="https://brasilico.vercel.app/" class="text-blue-600 hover:underline">Acessar Brasilico</a>
+        <img src="img/brasilico/1.jpeg" alt="Brasilico" class="mt-2 border border-gray-400">
+      </div>
+      <!-- Outros projetos seguem o mesmo padrão -->
+      <!-- Adicione seus projetos aqui -->
+    </div>
+  </div>
+
+  <!-- Habilidades Janela -->
+  <div id="skills" class="window bg-gray-200 border border-gray-500 shadow-lg rounded-md max-w-4xl mx-auto mt-8 relative z-10">
+    <!-- Barra de Título -->
+    <div class="flex items-center bg-blue-500 text-white px-2 py-1 rounded-t-md">
+      <img src="img/skills.png" alt="Ícone" class="w-4 h-4 mr-2">
+      <span class="font-bold">Habilidades</span>
+      <div class="ml-auto flex space-x-1">
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">_</button>
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">☐</button>
+        <button class="w-6 h-6 bg-red-500 hover:bg-red-600 focus:outline-none">X</button>
+      </div>
+    </div>
+    <!-- Conteúdo da Janela -->
+    <div class="p-4">
+      <ul class="list-disc list-inside">
+        <li><strong>Programação:</strong> Python, JavaScript</li>
+        <li><strong>Data Science:</strong> Pandas, NumPy, Matplotlib, Seaborn</li>
+        <li><strong>Machine Learning:</strong> Scikit-Learn, Sktime, TensorFlow, PyTorch</li>
+        <li><strong>Big Data:</strong> Apache Kafka, Spark</li>
+        <li><strong>Databases:</strong> Postgres, MySQL, Firebase, MongoDB</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contato Janela -->
+  <div id="contact" class="window bg-gray-200 border border-gray-500 shadow-lg rounded-md max-w-4xl mx-auto mt-8 mb-16 relative z-10">
+    <!-- Barra de Título -->
+    <div class="flex items-center bg-blue-500 text-white px-2 py-1 rounded-t-md">
+      <img src="img/contact.png" alt="Ícone" class="w-4 h-4 mr-2">
+      <span class="font-bold">Contato</span>
+      <div class="ml-auto flex space-x-1">
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">_</button>
+        <button class="w-6 h-6 bg-blue-300 hover:bg-blue-400 focus:outline-none">☐</button>
+        <button class="w-6 h-6 bg-red-500 hover:bg-red-600 focus:outline-none">X</button>
+      </div>
+    </div>
+    <!-- Conteúdo da Janela -->
+    <div class="p-4">
+      <p><strong>Email:</strong> felipequentino22@gmail.com | joao.quentino@dcomp.ufs.br</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/felipequentino/" target="_blank" class="text-blue-600 hover:underline">/in/felipequentino</a></p>
+      <p><strong>Telefone:</strong> +55 82 98116-6166</p>
+    </div>
+  </div>
+
+  <!-- Script para o relógio e o menu iniciar -->
+  <script>
+    // Atualiza o relógio na barra de tarefas
+    function updateClock() {
+      const clock = document.getElementById('clock');
+      const now = new Date();
+      clock.textContent = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Função para mostrar/esconder o menu iniciar
+    const startButton = document.getElementById('start-button');
+    const startMenu = document.getElementById('start-menu');
+
+    startButton.addEventListener('click', () => {
+      startMenu.classList.toggle('hidden');
+    });
+
+    // Esconde o menu iniciar ao clicar fora dele
+    document.addEventListener('click', (event) => {
+      if (!startButton.contains(event.target) && !startMenu.contains(event.target)) {
+        startMenu.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+
+</html>
