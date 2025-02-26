@@ -1,187 +1,964 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfólio - Windows XP</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felipe Quentino | Cientista de Dados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A1F3D;
+            --steel: #2A4E6E;
+            --ai-green: #4CAF50;
+            --alert-red: #FF6B6B;
+            --white: #FFFFFF;
+            --light-steel: #3D6889;
+            --translucent-white: rgba(255, 255, 255, 0.05);
+            --hover-translucent-white: rgba(255, 255, 255, 0.1);
+            --terminal-green: #4CAF50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom right, var(--navy), var(--steel));
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 31, 61, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--ai-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .language-switch {
+            background: var(--translucent-white);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-switch:hover {
+            background: var(--hover-translucent-white);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300vw;
+            height: 300vw;
+            background: radial-gradient(circle, rgba(74,144,226,0.1) 0%, rgba(10,31,61,0) 70%);
+            animation: pulse 8s infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            background: var(--translucent-white);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--hover-translucent-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--ai-green);
+        }
+
+        .btn-primary:hover {
+            background: #3d8b40;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--ai-green);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: var(--translucent-white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--hover-translucent-white);
+            transform: translateY(-3px);
+        }
+
+        .about-visual {
+            position: relative;
+            height: 400px;
+            background: var(--translucent-white);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* Project Grid Section */
+        .projects {
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            color: var(--ai-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--ai-green);
+        }
+
+        .tech-stack {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        pre {
+            background: var(--navy);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.9rem;
+        }
+
+        .results {
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: var(--ai-green);
+            text-decoration: none;
+            margin-top: auto;
+            display: inline-block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* Featured Project */
+        .featured-project {
+            padding: 6rem 2rem;
+            background: var(--navy);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--ai-green);
+        }
+
+        .featured-content h3 {
+            font-size: 1.2rem;
+            color: var(--white);
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .featured-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-image {
+            background: var(--translucent-white);
+            border-radius: 15px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        /* Metrics Section */
+        .metrics {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .metric {
+            background: var(--translucent-white);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .metric:hover {
+            transform: translateY(-10px);
+            background: var(--hover-translucent-white);
+        }
+
+        .metric-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--ai-green);
+            margin-bottom: 1rem;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+        }
+
+        /* Skills Radar Chart */
+        .skills-section {
+            padding: 4rem 2rem;
+        }
+
+        .skills-container {
+            width: 600px;
+            height: 400px;
+            margin: 4rem auto;
+            background: var(--translucent-white);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        /* Terminal Contact Form */
+        .contact {
+            padding: 4rem 2rem;
+        }
+
+        .terminal-form {
+            background: var(--navy);
+            border-radius: 10px;
+            padding: 2rem;
+            font-family: 'Space Grotesk', monospace;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .terminal-form h2 {
+            color: var(--terminal-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .terminal-form input,
+        .terminal-form textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-family: 'Space Grotesk', monospace;
+            border-radius: 5px;
+        }
+
+        .terminal-form button {
+            background: var(--ai-green);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-family: 'Space Grotesk', monospace;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .terminal-form button:hover {
+            background: #3d8b40;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icon {
+            background: var(--translucent-white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--hover-translucent-white);
+            transform: translateY(-5px);
+        }
+
+        .footer-text {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Translation / Language */
+        [lang="en"] {
+            display: none;
+        }
+
+        .en [lang="pt-BR"] {
+            display: none;
+        }
+
+        .en [lang="en"] {
+            display: block;
+        }
+
+        .en span[lang="en"], .en a[lang="en"], .en div[lang="en"] {
+            display: inline-block;
+        }
+
+        span[lang="pt-BR"], a[lang="pt-BR"], div[lang="pt-BR"] {
+            display: inline-block;
+        }
+
+        /* Animation keyframes */
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-grid, .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-header h2, .about-text h2, .featured-content h2 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .nav-mobile {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .menu-toggle {
+                display: block;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                color: var(--white);
+                cursor: pointer;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="desktop">
-    <!-- Atalhos da Área de Trabalho -->
-    <div class="shortcut" id="recycle-bin-shortcut" onclick="openWindow('recycle-bin-window')">
-      <img src="./images/recycle-bin-icon.png" alt="Lixeira">
-      <span>Lixeira</span>
-    </div>
-
-    <div class="shortcut" id="info-shortcut" onclick="openWindow('about-window')" style="top: 120px; left: 20px;">
-      <img src="./images/info-icon.png" alt="Info Icon">
-      <span>Info</span>
-    </div>
-
-    <div class="shortcut" id="projects-shortcut" onclick="openWindow('projects-window')" style="top: 200px; left: 20px;">
-      <img src="./images/folder-icon.png" alt="Meus Projetos">
-      <span>Meus Projetos</span>
-    </div>
-
-    <!-- Barra de Tarefas -->
-    <div class="taskbar">
-      <button class="start-button" onclick="toggleStartMenu()">
-        <img src="./images/start.png" alt="Botão Iniciar">
-      </button>
-    </div>
-
-    <!-- Menu Start -->
-    <div class="start-menu" id="start-menu">
-      <!-- Topo com ícone e texto -->
-      <div class="menu-header">
-        <img src="./images/user-icon.png" alt="User Icon" class="user-icon">
-        <span class="user-name">Felipe</span>
-      </div>
-      
-      <!-- Colunas principais -->
-      <div class="menu-content">
-        <!-- Coluna esquerda: Aplicações -->
-        <div class="menu-left">
-          <ul class="menu-list">
-            <li onclick="openWindow('about-window')">
-              <img src="./images/info-icon.png" alt="Info Icon">
-              Sobre Mim
-            </li>
-            <li onclick="openWindow('recycle-bin-window')">
-              <img src="./images/recycle-bin-icon.png" alt="Recycle Bin Icon">
-              Lixeira
-            </li>
-            <li onclick="openWindow('settings-window')">
-              <img src="./images/my-computer.webp" alt="Settings Icon">
-              Meu Computador
-            </li>
-          </ul>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Felipe Quentino</a>
+        <div class="nav-links">
+            <a href="#about"><span lang="pt-BR">Sobre</span><span lang="en">About</span></a>
+            <a href="#projects"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span></a>
+            <a href="#featured"><span lang="pt-BR">Destaque</span><span lang="en">Featured</span></a>
+            <a href="#contact"><span lang="pt-BR">Contato</span><span lang="en">Contact</span></a>
+            <button class="language-switch" id="language-toggle">
+                <span lang="pt-BR">EN 🌐</span>
+                <span lang="en">PT-BR 🌐</span>
+            </button>
         </div>
-        
-        <!-- Coluna direita: Acessos rápidos -->
-        <div class="menu-right">
-          <ul class="menu-list">
-            <li onclick="openWindow('projects-window')">
-              <img src="./images/folder-icon.png" alt="Folder Icon">
-              Meus Projetos
-            </li>
-            <li onclick="openWindow('internet-window')">
-              <img src="./images/internet-icon.webp" alt="Internet Icon">
-              Internet Explorer
-            </li>
-            <li onclick="openWindow('music-window')">
-              <img src="./images/music-icon.png" alt="Music Icon">
-              Minhas Músicas
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Rodapé com botões de desligar e deslogar -->
-      <div class="menu-footer">
-        <button class="footer-button">Logoff</button>
-        <button class="footer-button">Desligar</button>
-      </div>
-    </div>
+    </nav>
 
-    <!-- Janelas -->
-    <!-- Janela Sobre Mim -->
-    <div class="window" id="about-window">
-      <div class="window-header">
-        <span class="window-title">Sobre Mim</span>
-        <div class="window-controls">
-          <button class="minimize-button" onclick="minimizeWindow('about-window')"></button>
-          <button class="maximize-button" onclick="maximizeWindow('about-window')"></button>
-          <button class="close-button" onclick="closeWindow('about-window')"></button>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Felipe Quentino</h1>
+            <p class="tagline" lang="pt-BR">Precisão em Pixels, Insights em Algoritmos</p>
+            <p class="tagline" lang="en">Precision in Pixels, Insight in Algorithms</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <span lang="pt-BR">Explorar Projetos</span>
+                    <span lang="en">Explore Projects</span>
+                </a>
+                <a href="#contact" class="btn">
+                    <span lang="pt-BR">Contato</span>
+                    <span lang="en">Contact Me</span>
+                </a>
+            </div>
         </div>
-      </div>
-      <div class="window-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat velit ullam itaque assumenda dicta, mollitia voluptatum optio similique!</p>
-        <p>Eu sou um dev dev dev.</p>
-      </div>
-    </div>
+    </section>
 
-    <!-- Janela Lixeira -->
-    <div class="window" id="recycle-bin-window">
-      <div class="window-header">
-        <span class="window-title">Lixeira</span>
-        <div class="window-controls">
-          <button class="minimize-button" onclick="minimizeWindow('recycle-bin-window')"></button>
-          <button class="maximize-button" onclick="maximizeWindow('recycle-bin-window')"></button>
-          <button class="close-button" onclick="closeWindow('recycle-bin-window')"></button>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 lang="pt-BR">Sobre Mim</h2>
+                    <h2 lang="en">About Me</h2>
+                    
+                    <p lang="pt-BR">Sou um cientista de dados especializado em machine learning, deep learning e desenvolvimento full-stack. Minha paixão está em construir sistemas inteligentes que resolvem problemas complexos e criam impacto significativo.</p>
+                    <p lang="en">I'm a data scientist specializing in machine learning, deep learning, and full-stack development. My passion lies in building intelligent systems that solve complex problems and create meaningful impact.</p>
+                    
+                    <p lang="pt-BR">Com expertise em visão computacional, modelagem preditiva e desenvolvimento web, desenvolvi um portfólio diversificado de projetos, desde sistemas de detecção de armas até plataformas de análise preditiva para saúde pública.</p>
+                    <p lang="en">With expertise in computer vision, predictive modeling, and web development, I've developed a diverse portfolio of projects ranging from weapon detection systems to predictive analytics platforms for public health.</p>
+                    
+                    <p lang="pt-BR">Minha abordagem combina precisão técnica com pensamento estratégico, transformando dados brutos em insights acionáveis e aplicações poderosas.</p>
+                    <p lang="en">My approach combines technical precision with strategic thinking, transforming raw data into actionable insights and powerful applications.</p>
+                    
+                    <div class="skills-tags">
+                        <span class="skill-tag" lang="pt-BR">Aprendizado de Máquina</span>
+                        <span class="skill-tag" lang="en">Machine Learning</span>
+                        
+                        <span class="skill-tag" lang="pt-BR">Aprendizado Profundo</span>
+                        <span class="skill-tag" lang="en">Deep Learning</span>
+                        
+                        <span class="skill-tag" lang="pt-BR">Visão Computacional</span>
+                        <span class="skill-tag" lang="en">Computer Vision</span>
+                        
+                        <span class="skill-tag" lang="pt-BR">Detecção de Objetos</span>
+                        <span class="skill-tag" lang="en">Object Detection</span>
+                        
+                        <span class="skill-tag" lang="pt-BR">Reconhecimento Facial</span>
+                        <span class="skill-tag" lang="en">Facial Recognition</span>
+                        
+                        <span class="skill-tag" lang="pt-BR">Análise de Séries Temporais</span>
+                        <span class="skill-tag" lang="en">Time Series Analysis</span>
+                        
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Apache Kafka</span>
+                        <span class="skill-tag">SQLite3</span>
+                        <span class="skill-tag">Postgres</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <img src="./felipe_weapon.jpg" alt="Data visualization" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="window-content">
-        <p>A Lixeira está vazia!</p>
-      </div>
-    </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 lang="pt-BR">Projetos</h2>
+                <h2 lang="en">Projects</h2>
+                
+                <p lang="pt-BR">Onde Algoritmos Encontram Aplicações no Mundo Real</p>
+                <p lang="en">Where Algorithms Meet Real-World Applications</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Weapon Detection -->
+                <div class="project-card">
+                    <h3>🚨 <span lang="pt-BR">Detecção de Armas</span><span lang="en">Weapon Object Detection</span></h3>
+                    <p class="tech-stack">YOLO-PyTorch • OpenCV</p>
+                    
+                    <p lang="pt-BR">Rotulei mais de 10 mil imagens de armas e treinei um novo modelo de detecção de objetos YOLO-PyTorch, aplicando Transfer Learning e tornando a inferência do modelo base YOLO muito mais rápida e precisa.</p>
+                    <p lang="en">Labeled more than 10k images of weapons and trained a new YOLO-PyTorch object detection, applying Transfer Learning and making the inference of YOLO base model way faster and accurate.</p>
+                    
+                    <div class="results">
+                        <p lang="pt-BR">📈 Inferência 18% mais rápida • 94,3% de precisão</p>
+                        <p lang="en">📈 18% faster inference • 94.3% accuracy</p>
+                    </div>
+                    
+                    <a href="#about" class="project-link">
+                        <span lang="pt-BR">Ver Detalhes Técnicos →</span>
+                        <span lang="en">View Technical Details →</span>
+                    </a>
+                </div>
+                
+                <!-- Facial Recognition -->
+                <div class="project-card">
+                    <h3><span lang="pt-BR">👁️ Reconhecimento Facial Aprimorado</span><span lang="en">👁️ Enhanced Facial Recognition</span></h3>
+                    <p class="tech-stack">OpenCV • TensorFlow • ROI Techniques</p>
+                    
+                    <p lang="pt-BR">Aprimorei um modelo pré-treinado de detecção de pessoas, integrando-o com reconhecimento facial e técnicas de Região de Interesse (ROI) para uma aplicação de rastreamento de baixo custo.</p>
+                    <p lang="en">Enhanced a pre-trained person detection model by integrating it with facial recognition and Region of Interest (ROI) techniques for a low cost tracking application.</p>
+                    
+                    <div class="results">
+                        <p lang="pt-BR">📈 Processamento 3,2x mais rápido • 96,7% de precisão</p>
+                        <p lang="en">📈 3.2x faster processing • 96.7% accuracy</p>
+                    </div>
+                    
+                    <a href="#about" class="project-link">
+                        <span lang="pt-BR">Ver demonstração →</span>
+                        <span lang="en">See demonstration →</span>
+                    </a>
+                </div>
+                
+                <!-- Dengue Analysis -->
+                <div class="project-card">
+                    <h3><span lang="pt-BR">🦟 Análise de Casos de Dengue</span><span lang="en">🦟 Dengue Cases Analysis</span></h3>
+                    <p class="tech-stack">Python • Scikit-learn • Data Visualization</p>
+                    
+                    <p lang="pt-BR">Análise abrangente de casos de dengue em Sergipe, Brasil, identificando padrões, fatores de risco e estratégias de intervenção usando análise de dados geoespaciais.</p>
+                    <p lang="en">Comprehensive analysis of dengue cases in Sergipe, Brazil, identifying patterns, risk factors, and intervention strategies using geospatial data analytics.</p>
+                    
+                    <div class="results">
+                        <p lang="pt-BR">📍 14 municípios analisados • 3 padrões identificados</p>
+                        <p lang="en">📍 14 municipalities analyzed • 3 patterns identified</p>
+                    </div>
+                    
+                    <a href="https://felipequentino.quarto.pub/dengue-em-sergipe/" class="project-link">
+                        <span lang="pt-BR">Ver Análise →</span>
+                        <span lang="en">View Analysis →</span>
+                    </a>
+                </div>
+                
+                <!-- Brasilico -->
+                <div class="project-card">
+                    <h3>🌎 Brasilico</h3>
+                    <p class="tech-stack">ARIMA • SARIMAX • Scikit-learn • Vue.js</p>
+                    <div class="math-equation">
+                        <p>$$ \text{SARIMAX}(p,d,q)(P,D,Q)_s $$</p>
+                    </div>
+                    
+                    <p lang="pt-BR">Plataforma abrangente que fornece informações em tempo real e previsões sobre o Brasil usando modelos avançados de previsão.</p>
+                    <p lang="en">Comprehensive platform providing real-time information and predictions about Brazil using advanced forecasting models.</p>
+                    
+                    <a href="https://brasilico.vercel.app/" target="_blank" class="project-link">
+                        <span lang="pt-BR">Explorar Dados em Tempo Real →</span>
+                        <span lang="en">Explore Real-Time Data →</span>
+                    </a>
+                </div>
+                
+                <!-- Environmental Reports -->
+                <div class="project-card">
+                    <h3>🌿 <span lang="pt-BR">Crimes Ambientais</span><span lang="en">Environmental Crimes</span></h3>
+                    <p class="tech-stack">HTML • CSS • JavaScript • Heatmaps</p>
+                    
+                    <p lang="pt-BR">Plataforma para denúncias anônimas de crimes ambientais, incluindo recursos de geolocalização, upload de evidências e tratamento seguro de dados.</p>
+                    <p lang="en">Platform for anonymous reporting of environmental crimes, including geolocation features, evidence uploading, and secure data handling.</p>
+                    
+                    <a href="https://crimesambientais.netlify.app/" target="_blank" class="project-link">
+                        <span lang="pt-BR">Ver Denúncias →</span>
+                        <span lang="en">View Reports →</span>
+                    </a>
+                </div>
+                
+                <!-- Gasification Simulation -->
+                <div class="project-card">
+                    <h3><span lang="pt-BR">🔥 Simulação de Gasificação</span><span lang="en">🔥 Gasification Simulation</span></h3>
+                    <p class="tech-stack">Polynomial Regression • Python • Simulation</p>
+                    
+                    <p lang="pt-BR">Refatorei problemas de simulação de gasiificação usando regressão polinomial para melhorar a precisão e a eficiência computacional.</p>
+                    <p lang="en">Refactored gasification simulation problems using polynomial regression to improve accuracy and computational efficiency.</p>
+                    
+                    <div class="results">
+                        <p lang="pt-BR">⚡ 31% mais simulações convergidas</p>
+                        <p lang="en">⚡ 31% more simulations converged</p>
+                    </div>
+                    
+                    <a href="#" class="project-link">
+                        <span lang="pt-BR">Ver Detalhes da Simulação →</span>
+                        <span lang="en">View Simulation Details →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Project Section -->
+    <section id="featured" class="featured-project">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-content">
+                    <h2>
+                        <span lang="pt-BR">Destaque: Óusi</span>
+                        <span lang="en">Featured: Óusi</span>
+                    </h2>
+                    
+                    <h3 lang="pt-BR">Sistema Avançado de Monitoramento</h3>
+                    <h3 lang="en">Advanced Monitoring System</h3>
+                    
+                    <p lang="pt-BR">
+                        Este projeto representa um avanço significativo na tecnologia de segurança, utilizando técnicas de deep learning de última geração para detectar armas em transmissões de vídeo em tempo real com precisão excepcional.
+                    </p>
+                    <p lang="en">
+                        This project represents a significant advancement in security technology, utilizing state-of-the-art deep learning techniques to detect weapons in real-time video streams with exceptional accuracy.
+                    </p>
+                    
+                    <p lang="pt-BR">
+                        O sistema foi treinado em um conjunto diversificado de dados de armas em várias condições de iluminação, ângulos e obstruções parciais. Ao implementar transferência de aprendizado e técnicas personalizadas de aumento de dados, o modelo atinge 95% de precisão com uma taxa de falsos positivos notavelmente baixa.
+                    </p>
+                    <p lang="en">
+                        The system was trained on a diverse dataset of weapons in various lighting conditions, angles, and partial occlusions. By implementing transfer learning and custom data augmentation techniques, the model achieves 95% accuracy with a remarkably low false positive rate.
+                    </p>
+                    
+                    <p lang="pt-BR">
+                        Além disso, o Óusi é integrado ao Reconhecimento Facial Aprimorado com rastreamento de pessoas, formando uma solução completa de segurança.
+                    </p>
+                    <p lang="en">
+                        Also, Óusi is combined with the Enhanced Facial Recognition and person tracking, making it a complete security software.
+                    </p>
+                    
+                    <p lang="pt-BR">Principais conquistas técnicas incluem:</p>
+                    <p lang="en">Key technical achievements include:</p>
+                    
+                    <ul>
+                        <li>
+                            <span lang="pt-BR">
+                                Arquitetura YOLOv8 personalizada com modificações para melhorar a detecção de objetos pequenos
+                            </span>
+                            <span lang="en">
+                                Custom YOLOv8 architecture with modifications for improved small object detection
+                            </span>
+                        </li>
+                        <li>
+                            <span lang="pt-BR">
+                                Pipeline de inferência otimizado para processamento em tempo real a mais de 10 FPS em hardware do cliente 
+                            <span lang="en">
+                                Optimized inference pipeline for real-time processing at 10+ FPS on consumer hardware
+                            </span>
+                        </li>
+                        <li>
+                            <span lang="pt-BR">
+                                Implementação de verificação de consistência temporal para reduzir falsos positivos
+                            </span>
+                            <span lang="en">
+                                Implementation of temporal consistency checking to reduce false positives
+                            </span>
+                        </li>
+                        <li>
+                            <span lang="pt-BR">
+                                Capacidades de implantação em dispositivos de borda para sistemas com conectividade limitada
+                            </span>
+                            <span lang="en">
+                                Edge deployment capabilities for systems with limited connectivity
+                            </span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-primary">
+                        <span lang="pt-BR">Ver Documentação Técnica</span>
+                        <span lang="en">View Technical Documentation</span>
+                    </a>
+                </div>
+                
+                <div class="featured-image">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/6uX1ROlsgqE?si=ewDAbT_pcou2pBv9" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 lang="pt-BR">Contato</h2>
+                <h2 lang="en">Contact</h2>
+                <p lang="pt-BR">Vamos Conectar e Criar Algo Incrível</p>
+                <p lang="en">Let's Connect and Create Something Amazing</p>
+            </div>
+            
+            <div class="terminal-form">
+                <h2>$ contact_felipe</h2>
+                <form id="contact-form">
+                    <input type="text" placeholder="your_name" required>
+                    <input type="email" placeholder="your_email@example.com" required>
+                    <textarea placeholder="your_message..." rows="4" required></textarea>
+                    <button type="submit">$ send_message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-social">
+                <a href="#" class="social-icon">📘</a>
+                <a href="#" class="social-icon">💻</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">📱</a>
+            </div>
+            
+            <p class="footer-text" lang="pt-BR">© 2025 Felipe Quentino | Cientista de Dados. Todos os direitos reservados.</p>
+            <p class="footer-text" lang="en">© 2025 Felipe Quentino | Data Scientist. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <!-- Janela Meus Projetos -->
-    <div class="window" id="projects-window">
-      <div class="window-header">
-        <span class="window-title">Meus Projetos</span>
-        <div class="window-controls">
-          <button class="minimize-button" onclick="minimizeWindow('projects-window')"></button>
-          <button class="maximize-button" onclick="maximizeWindow('projects-window')"></button>
-          <button class="close-button" onclick="closeWindow('projects-window')"></button>
-        </div>
-      </div>
-      <div class="window-content file-manager">
-        <!-- Simulação de Gerenciador de Arquivos do Windows XP -->
-        <div class="file-manager-sidebar">
-          <ul>
-            <li onclick="filterProjects('all')">Todos os Projetos</li>
-            <li onclick="filterProjects('web')">Web</li>
-            <li onclick="filterProjects('mobile')">Mobile</li>
-            <li onclick="filterProjects('design')">Design</li>
-          </ul>
-        </div>
-        <div class="file-manager-content">
-          <div class="project-item" data-category="web">
-            <img src="./images/project-web-icon.png" alt="Projeto Web">
-            <span>Brasilico</span>
-          </div>
-          <div class="project-item" data-category="mobile">
-            <img src="./images/project-mobile-icon.png" alt="Projeto Mobile">
-            <span>Projeto App Mobile</span>
-          </div>
-          <div class="project-item" data-category="design">
-            <img src="./images/project-design-icon.png" alt="Projeto Design">
-            <span>Projeto Design Gráfico</span>
-          </div>
-          <!-- Adicione mais projetos conforme necessário -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Janela Detalhes do Projeto -->
-    <div class="window" id="project-details-window">
-      <div class="window-header">
-        <span class="window-title">Detalhes do Projeto</span>
-        <div class="window-controls">
-          <button class="minimize-button" onclick="minimizeWindow('project-details-window')"></button>
-          <button class="maximize-button" onclick="maximizeWindow('project-details-window')"></button>
-          <button class="close-button" onclick="closeWindow('project-details-window')"></button>
-        </div>
-      </div>
-      <div class="window-content">
-        <h2 id="project-name">Nome do Projeto</h2>
-        <p id="project-description">Descrição detalhada do projeto...</p>
-        
-        <!-- Seção de Stack Tecnológica -->
-        <div id="project-stack">
-          <h3>Stack Tecnológica</h3>
-          <ul id="stack-list">
-            <!-- Tecnologias serão adicionadas aqui via JavaScript -->
-          </ul>
-        </div>
-        
-        <a href="#" id="project-link" target="_blank">Ver Projeto</a>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/scripts.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        // Select the toggle button by its ID
+        const languageToggle = document.getElementById("language-toggle");
+    
+        // Listen for click events on the button
+        languageToggle.addEventListener("click", () => {
+            // Toggle the 'en' class on the body element
+            document.body.classList.toggle("en");
+        });
+    </script>
 </body>
 </html>
