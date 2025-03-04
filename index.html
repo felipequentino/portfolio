@@ -224,12 +224,36 @@
         }
 
         .about-visual {
-            position: relative;
-            height: 400px;
-            background: var(--translucent-white);
-            border-radius: 15px;
-            overflow: hidden;
-        }
+    position: relative;
+    height: 80%; /* Ajuste para igualar a altura da seção "About Me" */
+    background: var(--translucent-white);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.about-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; /* Mantém as bordas arredondadas */
+}
+
+.about-visual figcaption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para melhor legibilidade */
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 
         /* Project Grid Section */
         .projects {
@@ -689,9 +713,12 @@
                     </div>
                 </div>
                 
-                <div class="about-visual">
-                    <img src="./felipe_weapon.jpg" alt="Data visualization" style="width: 100%; height: 100%; object-fit: cover;" />
-                </div>
+                <figure class="about-visual">
+                    <img src="./imgcurso.png" alt="Data visualization" style="width: 100%; height: 100%; object-fit: cover;" />
+                    <figcaption lang="pt-BR">Eu ministrando um minicurso de Introdução a Machine Learning, em Dezembro de 2024</figcaption>
+                    <figcaption lang="en">Me teaching an Introduction to Machine Learning workshop, December 2024</figcaption>
+
+                </figure>
             </div>
         </div>
     </section>
@@ -745,13 +772,32 @@
                         <span lang="en">See demonstration →</span>
                     </a>
                 </div>
-                
+
+                <!-- Glucose Prediction -->
+                <div class="project-card">
+                  <h3><span lang="pt-BR">💉 Predição de Hipoglicemia</span><span lang="en">💉 Hypoglycemia Prediction</span></h3>
+                  <p class="tech-stack">MAGE Algorithm • Python • Séries Temporais</p>
+                  
+                  <p lang="pt-BR">Utilizando apenas dados em tempo real de Glicose do paciente, recriei o algoritmo estatístico MAGE para prever quando o paciente terá uma Hipoglicemia, indo contra as alternativas mais complexas de realizar esse tipo de predição utilizando centenas de dados.</p>
+                  <p lang="en">Using only the patient's real-time glucose data, I recreated the MAGE statistical algorithm to predict when the patient will experience hypoglycemia, challenging more complex alternatives that require hundreds of data points.</p>
+                  
+                  <div class="results">
+                      <p lang="pt-BR">⬆️  Mais de 1000 Hipoglicemias previstas, ajudando dezenas de diabéticos.</p>
+                      <p lang="en">⬆️ Over 1,000 hypoglycemic events predicted, helping dozens of diabetics.</p>
+                  </div>
+                  
+                  <a href="#" class="project-link">
+                      <span lang="pt-BR">Ver Detalhes da Simulação →</span>
+                      <span lang="en">View Simulation Details →</span>
+                  </a>
+                </div>
+
                 <!-- Dengue Analysis -->
                 <div class="project-card">
                     <h3><span lang="pt-BR">🦟 Análise de Casos de Dengue</span><span lang="en">🦟 Dengue Cases Analysis</span></h3>
                     <p class="tech-stack">Python • Scikit-learn • Data Visualization</p>
                     
-                    <p lang="pt-BR">Análise abrangente de casos de dengue em Sergipe, Brasil, identificando padrões, fatores de risco e estratégias de intervenção usando análise de dados geoespaciais.</p>
+                    <p lang="pt-BR">Análise abrangente de casos de dengue em Sergipe, Brasil, identificando padrões e fatores de risco para a criação de estratégias de intervenção usando análise de dados geoespaciais.</p>
                     <p lang="en">Comprehensive analysis of dengue cases in Sergipe, Brazil, identifying patterns, risk factors, and intervention strategies using geospatial data analytics.</p>
                     
                     <div class="results">
@@ -759,7 +805,7 @@
                         <p lang="en">📍 14 municipalities analyzed • 3 patterns identified</p>
                     </div>
                     
-                    <a href="https://felipequentino.quarto.pub/dengue-em-sergipe/" class="project-link">
+                    <a href="https://felipequentino.quarto.pub/dengue-em-sergipe/" class="project-link" target="_blank">
                         <span lang="pt-BR">Ver Análise →</span>
                         <span lang="en">View Analysis →</span>
                     </a>
@@ -773,7 +819,7 @@
                         <p>$$ \text{SARIMAX}(p,d,q)(P,D,Q)_s $$</p>
                     </div>
                     
-                    <p lang="pt-BR">Plataforma abrangente que fornece informações em tempo real e previsões sobre o Brasil usando modelos avançados de previsão.</p>
+                    <p lang="pt-BR">Plataforma abrangente que fornece informações em tempo real e previsões sobre o Brasil usando modelos avançados de previsão para series temporais.</p>
                     <p lang="en">Comprehensive platform providing real-time information and predictions about Brazil using advanced forecasting models.</p>
                     
                     <a href="https://brasilico.vercel.app/" target="_blank" class="project-link">
@@ -793,25 +839,6 @@
                     <a href="https://crimesambientais.netlify.app/" target="_blank" class="project-link">
                         <span lang="pt-BR">Ver Denúncias →</span>
                         <span lang="en">View Reports →</span>
-                    </a>
-                </div>
-                
-                <!-- Gasification Simulation -->
-                <div class="project-card">
-                    <h3><span lang="pt-BR">🔥 Simulação de Gasificação</span><span lang="en">🔥 Gasification Simulation</span></h3>
-                    <p class="tech-stack">Polynomial Regression • Python • Simulation</p>
-                    
-                    <p lang="pt-BR">Refatorei problemas de simulação de gasiificação usando regressão polinomial para melhorar a precisão e a eficiência computacional.</p>
-                    <p lang="en">Refactored gasification simulation problems using polynomial regression to improve accuracy and computational efficiency.</p>
-                    
-                    <div class="results">
-                        <p lang="pt-BR">⚡ 31% mais simulações convergidas</p>
-                        <p lang="en">⚡ 31% more simulations converged</p>
-                    </div>
-                    
-                    <a href="#" class="project-link">
-                        <span lang="pt-BR">Ver Detalhes da Simulação →</span>
-                        <span lang="en">View Simulation Details →</span>
                     </a>
                 </div>
             </div>
